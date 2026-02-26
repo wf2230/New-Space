@@ -23,6 +23,9 @@ void flip() {
   digitalWrite(LED_BUILTIN, !state);     // set pin to the opposite state
 
   ++count;
+  Serial.print("COUNT=");
+  Serial.println(count);
+
   // when the counter reaches a certain value, start blinking like crazy
   if (count == 20) {
     flipper.attach(0.1, flip);
@@ -34,6 +37,8 @@ void flip() {
 }
 
 void setup() {
+  Serial.begin(115200);
+
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
 
